@@ -14,10 +14,15 @@ defmodule KVstoreTest do
     assert res == 1
     res = KVstore.Storage.del("testkey0")
     assert res == :ok
-    # todo test no found
+    res = KVstore.Storage.get("testkey0")
+    assert res == {:error, "no found", 200}
   end
   test "get stale key" do
-    # todo
+    res = KVstore.Storage.set("testkey1",0,0)
+    assert res == :ok
+    res = KVstore.Storage.get("testkey1")
+    assert res == {:error, "Time to live exist. :(", 202}
+    Logger.info "KVStorage #{inspect res}"
 
   end
 end

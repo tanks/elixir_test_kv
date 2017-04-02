@@ -1,6 +1,6 @@
 defmodule KVstore do
   @moduledoc """
-  Модуль KVstore - точкой входа приложения.
+  Модуль <b>KVstore</b> - точкой входа приложения.
 
   """
   use Application
@@ -12,7 +12,7 @@ defmodule KVstore do
     import Supervisor.Spec, warn: false
 
     # Define workers and child supervisors to be supervised
-    #  TODO listen порт в качестве параметра
+    # TODO listen порт в качестве параметра
     children = [
       # Starts a worker by calling
       worker(__MODULE__, [], function: :start_web_site),
@@ -23,7 +23,7 @@ defmodule KVstore do
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: KVstore.Supervisor]
     sup_res = Supervisor.start_link(children, opts)
-    Logger.info "Starting supervisor #{inspect sup_res}"
+    Logger.info "Starting Root supervisor #{inspect sup_res}"
     sup_res
   end
 

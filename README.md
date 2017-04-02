@@ -1,11 +1,12 @@
 # Kvstore
 
- Elixir  key-value хранилище с удалением данных по таймауту (TTL) 
-и управлением (CRUD) через web. TTL задается при добавлении пары 
-key-value в хранилище. Безопасное приложение - есть защита от
- потери данных между перезапусками.
+Elixir  key-value store(:dets) service with TTL and control from http(half rest)
 
+
+## get deps
+mix deps.get
 ## TEST
+mix test
 
 ## RUN:
  iex -S mix
